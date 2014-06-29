@@ -272,11 +272,11 @@ var chartObjects = {}, // Holds instantiated chart objects
 				    
 	        pie: {
 	            show: true,
-	            explode: 5,
+	            explode: 0,
 	            sizeRatio: .9 / getScale(), // Bug in flotr2
-	            labelRadius: 1/3,
+	            labelRadius: 4/5,
 	            labelFormatter: function(total, value) {
-					return "<div style='font-size:150%; text-align:center; padding:2px; color:white;'>" + value + "</div>";
+					return "<div style='font-size:110%; text-align:center; padding:2px; color:dark grey;'>" + value + "</div>";
 				}
 				
 	        },

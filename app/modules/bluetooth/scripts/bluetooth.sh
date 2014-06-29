@@ -19,7 +19,11 @@ bluetoothfile="$DIR/cache/bluetoothinfo.txt"
 
 # Bluetooth status.
 Power=`system_profiler SPBluetoothDataType | grep 'Bluetooth Power' | awk '{print tolower($3)}'`
-status="Status = Bluetooth is $Power"
+if [[ $Power == "" ]]; then
+	status="Status = Bluetooth is not installed"
+else
+	status="Status = Bluetooth is $Power"
+fi
 
 KeyboardPercent=`ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent | sed 's/[a-z,A-Z, ,|,",=]//g' | tail -1 | awk '{print $1}'`
 if [ "${KeyboardPercent}" = "" ]; then
